@@ -1,0 +1,951 @@
+﻿@font-face {
+    font-family: "Space Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://www.themoviedb.org/assets/2/SpaceMono-Regular-936aa68cfc584edea4e95c21cd712a32332d0c6eecc4f9f4294bab7df1af0248.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Space Mono";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://www.themoviedb.org/assets/2/SpaceMono-Italic-29750230655d3793a407da872d71872b45da36b6a03f04ccba5fccc27e5c3605.woff2") format("woff2");
+}
+html {
+    --moviescrollTrack1: 232, 230, 192;
+    --moviescrollTrack2: 2, 255, 107;
+    --tvscrollTrack1: 255, 202, 154;
+    --tvscrollTrack2: 220, 255, 0;
+    --userscrollTrack1: 255, 202, 154;
+    --userscrollTrack2: 255, 68, 234;
+    --defaultscrollTrack: 0, 0, 0;
+    --letterRatio: 20;
+    --numberRatio: 16;
+}
+img {
+    display: block;
+}
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+div.taw_wrapper::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+div.taw_wrapper {
+    background: #f2f2f2;
+    color: #000;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--moviescrollTrack1), 1) rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper::-webkit-scrollbar-track {
+    background: rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--moviescrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.top_movies,
+div.taw_wrapper.worst_movies {
+    scrollbar-color: rgba(var(--moviescrollTrack1), 1) rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.top_movies::-webkit-scrollbar-track,
+div.taw_wrapper.worst_movies::-webkit-scrollbar-track {
+    background: rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.top_movies::-webkit-scrollbar-thumb,
+div.taw_wrapper.worst_movies::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--moviescrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.top_tv,
+div.taw_wrapper.tv_summary {
+    scrollbar-color: rgba(var(--tvscrollTrack1), 1) rgba(var(--tvscrollTrack2), 1);
+}
+div.taw_wrapper.top_tv::-webkit-scrollbar-track,
+div.taw_wrapper.tv_summary::-webkit-scrollbar-track {
+    background: rgba(var(--tvscrollTrack2), 1);
+}
+div.taw_wrapper.top_tv::-webkit-scrollbar-thumb,
+div.taw_wrapper.tv_summary::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--tvscrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--tvscrollTrack2), 1);
+}
+div.taw_wrapper.top_users {
+    scrollbar-color: rgba(var(--userscrollTrack1), 1) rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.top_users::-webkit-scrollbar-track {
+    background: rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.top_users::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--userscrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.edit_summary {
+    scrollbar-color: rgba(var(--userscrollTrack1), 1) rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.edit_summary::-webkit-scrollbar-track {
+    background: rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.edit_summary::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--userscrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--userscrollTrack2), 1);
+}
+div.taw_wrapper.thanks,
+div.taw_wrapper.finally {
+    scrollbar-color: rgba(var(--moviescrollTrack1), 1) rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.thanks::-webkit-scrollbar-track,
+div.taw_wrapper.finally::-webkit-scrollbar-track {
+    background: rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper.thanks::-webkit-scrollbar-thumb,
+div.taw_wrapper.finally::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--moviescrollTrack1), 1);
+    border-radius: 6px;
+    border: 3px solid rgba(var(--moviescrollTrack2), 1);
+}
+div.taw_wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    display: flex;
+}
+div.taw_wrapper h2 {
+    font-family: "Space Mono";
+    font-weight: 400;
+    padding: 0;
+}
+div.taw_wrapper h3 {
+    font-family: "Space Mono";
+    font-weight: 400;
+    padding: 0;
+}
+div.taw_wrapper div.page {
+    position: relative;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: -40px;
+}
+div.taw_wrapper div.page.initial {
+    min-width: 100%;
+}
+div.taw_wrapper div.page.initial div.container h2 {
+    text-align: right;
+    font-size: 5.7em;
+}
+div.taw_wrapper div.page.initial div.container h2 span {
+    font-size: 1.7em;
+}
+div.taw_wrapper div.page.initial div.container p {
+    font-size: 1.3em;
+    position: absolute;
+    left: 40%;
+}
+div#top_movies::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 40%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_2-588d5a628188b549a346c417b39b28bd29099a4594a42c04722c6fee20cf9f77.svg") 0 0 no-repeat;
+    transform: rotate(20deg);
+    zoom: 150%;
+    padding: 200px;
+}
+div#biggest_movies::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -5%;
+    left: 30%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_3-a7963c9d2a39278c6f6e192d95a9c29c0cce11d684b20b5649580f956d053e49.svg") 0 0 no-repeat;
+    transform: rotate(350deg);
+    zoom: 150%;
+}
+div#worst_movies::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -5%;
+    left: 35%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_4-ea15e074a3eeb765e67c5bbaa594a619ffe94c02b39a115162498ee810fc0579.svg") 0 0 no-repeat;
+    transform: rotate(330deg);
+    zoom: 100%;
+}
+div#top_tv::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 40%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_5-1cd932a2c2b57079c89504a4545c6655c19a706aa4d8ebf923023e1ce93097f7.svg") 0 0 no-repeat;
+    zoom: 150%;
+}
+div#worst_tv::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 25%;
+    left: 75%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_6-674e05a7e913888e74ef653eab04a120c67e0cc6fa103962da57869011bcf44f.svg") 0 0 no-repeat;
+    transform: rotate(330deg);
+    zoom: 70%;
+}
+div#top_users::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 29%;
+    left: 3%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_8-fae706ec0da1ef4e0c48b6abfe1984cfb5808be9dfc01619b25b2a9691c43f56.svg") 0 0 no-repeat;
+    transform: rotate(10deg);
+    zoom: 130%;
+}
+div#edit_summary::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -25%;
+    left: 50%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_9-5e46c672c8f41b3def6ed3c7d98613b73aa0ecf3408d4ff2fffd633910dec718.svg") 0 0 no-repeat;
+    transform: rotate(330deg);
+    zoom: 70%;
+}
+div#thanks {
+    overflow: visible;
+}
+div#thanks::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -50%;
+    left: 15%;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_10-2f0a820a7c0d353fb8d3e150299314cbee6556a378530060a01b3e6130a68b45.svg") 0 0 no-repeat;
+    transform: rotate(20deg);
+    zoom: 130%;
+}
+div.taw_wrapper div.page.initial img.main {
+    width: calc(40vw);
+    min-width: calc(40vw);
+    height: calc(40vw * 1.508);
+    max-height: 70vh;
+    margin-right: 80px;
+}
+div.taw_wrapper div.page div.wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 0 80px;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+div.taw_wrapper div.page div.wrapper.on {
+    visibility: visible;
+}
+div.taw_wrapper div.page div.wrapper.revealed {
+    pointer-events: auto;
+}
+div.taw_wrapper div.page.cards div.wrapper {
+    flex-wrap: wrap;
+}
+div.taw_wrapper div.page div.wrapper p {
+    margin: 0;
+    padding: 0;
+}
+div.taw_wrapper div.page.cards div.wrapper div.header h2,
+div.taw_wrapper div.page.cards div.wrapper div.header h3 {
+    width: 100%;
+    visibility: hidden;
+    position: relative;
+    top: -200px;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+}
+div.taw_wrapper div.page.cards div.wrapper.revealed div.header h2,
+div.taw_wrapper div.page.cards div.wrapper.revealed div.header h3 {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+}
+div.taw_wrapper div.page.cards div.wrapper div.header h2 {
+    font-size: 4em;
+    font-weight: 700;
+}
+div.taw_wrapper div.page.cards div.wrapper div.header h3 {
+    font-size: 1.6em;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    margin-left: 30px;
+}
+div.taw_wrapper div.page.cards div.wrapper > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+div.taw_wrapper div.page div.wrapper > div {
+    display: flex;
+}
+div.taw_wrapper div.page.cards div.wrapper div.header {
+    margin-bottom: 30px;
+}
+div.taw_wrapper div.page div.shapes {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+}
+div.taw_wrapper div.page div.shapes div {
+    position: absolute;
+    z-index: 0;
+}
+div.taw_wrapper div.page div.shapes div:nth-child(1) {
+    top: 8%;
+    left: -1%;
+    zoom: 55%;
+}
+div.taw_wrapper div.page div.shapes div:nth-child(2) {
+    top: 15%;
+    right: 15%;
+    zoom: 50%;
+    transform: rotate(20deg);
+    z-index: 1;
+}
+div.taw_wrapper div.page div.shapes div:nth-child(3) {
+    bottom: 15%;
+    left: 5%;
+    zoom: 35%;
+    transform: rotate(350deg);
+    z-index: 1;
+}
+div.taw_wrapper div.page div.shapes div:nth-child(4) {
+    bottom: -30%;
+    right: 20%;
+    transform: rotate(345deg);
+    zoom: 110%;
+}
+div.taw_wrapper div.page div.wrapper div.container {
+    padding-right: 60px;
+}
+div.taw_wrapper div.page div.wrapper div.scroll {
+    position: absolute;
+    top: 100px;
+    right: -100px;
+}
+div.taw_wrapper div.page.summary div.wrapper div {
+    margin-bottom: 20px;
+}
+div.taw_wrapper div.page.summary div.wrapper div:last-child {
+    margin-bottom: 0;
+}
+div.taw_wrapper div.page.summary div.wrapper div h2 {
+    width: 100%;
+    font-size: 3.5em;
+    font-weight: 700;
+}
+div.taw_wrapper div.page.summary div.wrapper div h3 {
+    width: 100%;
+    font-size: 1.6em;
+    white-space: nowrap;
+}
+div.taw_wrapper ol.cards {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    counter-reset: number;
+    list-style-position: inside;
+    list-style-type: none;
+}
+div.taw_wrapper ol.cards li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 4.4em;
+    line-height: 1.4em;
+    font-family: "Space Mono";
+    font-weight: 700;
+    counter-increment: number;
+    content: counter(number) " ";
+    width: 140px;
+    text-align: right;
+}
+div.taw_wrapper ol.cards li {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 120px;
+}
+div.taw_wrapper ol.cards li.pad {
+    margin-left: 40px;
+}
+div.taw_wrapper ol.cards li:nth-child(1) {
+    margin-left: -60px;
+}
+div.taw_wrapper ol.cards li div.card_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.poster {
+    width: 220px;
+    height: calc(220px * 1.5);
+    overflow: hidden;
+    border-radius: var(--imageBorderRadius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+div.taw_wrapper div.movie ol.cards li div.card_wrapper div.poster {
+    background-color: #e8e6c0;
+}
+div.taw_wrapper div.tv ol.cards li div.card_wrapper div.poster {
+    background-color: #ffca9a;
+}
+div.taw_wrapper div.user ol.cards li div.card_wrapper div.poster {
+    background-color: #ffca9a;
+}
+div.taw_wrapper div.thanks ol.cards li div.card_wrapper div.poster {
+    background-color: #c6ff9a;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.poster a,
+div.taw_wrapper ol.cards li div.card_wrapper div.poster img {
+    height: 100%;
+    width: 100%;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.options {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    z-index: 4;
+    opacity: 0.6;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.options:hover {
+    opacity: 1;
+    filter: brightness(0) saturate(100%) invert(53%) sepia(33%) saturate(3054%) hue-rotate(156deg) brightness(98%) contrast(99%);
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.options div.glyphicons_v2 {
+    font-size: 1.6em;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.options:hover {
+    cursor: pointer;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data div.watch_wrapper {
+    width: 100%;
+    position: absolute;
+    top: -13px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data div.watch {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border-radius: 12px;
+    background: rgba(var(--tmdbDarkBlue), 1);
+    padding: 3px 14px;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data div.watch h3 {
+    margin: 0;
+    font-size: 0.7em;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data div.watch h3 span {
+    font-size: 1.8em;
+    margin-left: 2px;
+}
+div.taw_wrapper ol.cards li div.card_wrapper div.data div.watch h3 a {
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+div.taw_wrapper ol.cards li h3 {
+    width: 100%;
+    text-align: center;
+    margin: 18px 0 0 0;
+    padding: 0;
+    line-height: 1em;
+}
+div.taw_wrapper ol.cards li h3 a {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+}
+div.taw_wrapper ol.cards li h4 {
+    text-align: center;
+}
+div.taw_wrapper ol.users {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+}
+div.taw_wrapper ol.users li {
+    align-content: flex-start;
+    flex: 1 1 80px;
+    flex-wrap: nowrap;
+    height: 100px;
+    min-height: 100px;
+    width: auto;
+}
+div.taw_wrapper ol.users li:first-child {
+    grid-row: span 3;
+    height: 100%;
+    min-height: 100%;
+    border-right: 1px solid #fff;
+    margin-left: -60px;
+}
+div.taw_wrapper ol.users li:first-child div.card_wrapper {
+    margin-top: 14px;
+    padding-right: 60px;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+div.taw_wrapper ol.users li div.card_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    margin-top: 0;
+}
+div.taw_wrapper ol.users li div.card_wrapper * {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+div.taw_wrapper ol.users li div.card_wrapper > div {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+div.taw_wrapper ol.users li div.card_wrapper div.avatar {
+    margin-right: 20px;
+}
+div.taw_wrapper ol.users li div.card_wrapper div.avatar a {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+div.taw_wrapper ol.users li div.card_wrapper div.avatar div.initials {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+div.taw_wrapper ol.users li div.card_wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+div.taw_wrapper ol.users li div.card_wrapper h3 {
+    white-space: nowrap;
+}
+div.taw_wrapper ol.users li div.card_wrapper h3 a {
+    font-family: "Space Mono";
+    font-size: 1.4em;
+    font-weight: 700;
+}
+div.taw_wrapper ol.users li div.card_wrapper h4 {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+div.taw_wrapper ol.users li div.card_wrapper div.data {
+    justify-content: flex-start;
+}
+div.taw_wrapper ol.languages {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+}
+div.taw_wrapper ol.languages li:nth-child(1),
+div.taw_wrapper ol.languages li:nth-child(2) {
+    margin-left: -40px;
+}
+div.taw_wrapper ol.languages li,
+div.taw_wrapper ol.languages li:last-child {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 100px;
+    min-height: 100px;
+    margin-right: 20px;
+}
+div.taw_wrapper ol.languages li:last-child {
+    margin-right: 0;
+}
+div.taw_wrapper ol.languages li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 5.4em;
+    line-height: 1.2em;
+    font-family: "Space Mono";
+    font-weight: 700;
+    counter-increment: number;
+    content: counter(number) " ";
+}
+div.taw_wrapper ol.languages li h3 {
+    text-align: left;
+    font-size: 2.4em;
+    white-space: nowrap;
+    margin: 0;
+}
+div.taw_wrapper ol.languages li div.card_wrapper div.data {
+    align-items: center;
+    align-content: center;
+}
+div.taw_wrapper div.page.thanks div.flex.you > div {
+    display: flex;
+    flex-wrap: nowrap;
+}
+div.taw_wrapper div.page.thanks div.flex.you div.copy {
+    padding: 30px 0 0 0;
+    flex-wrap: wrap;
+}
+div.taw_wrapper div.page.thanks div.copy p {
+    width: 100%;
+    color: rgba(var(--taw2020Orange), 1);
+    font-size: 1.2em;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+div.taw_wrapper div.page.thanks div.copy p:last-child {
+    margin-bottom: 0;
+}
+div.taw_wrapper div.page.thanks div.copy span.memoji {
+    margin-right: 24px;
+    transform: rotate(350deg);
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+div.taw_wrapper div.page.thanks div.copy span.memoji img {
+    position: relative;
+    top: 3px;
+    left: 0;
+}
+div.taw_wrapper div.page.thanks div.columns div.column {
+    padding-right: 200px;
+    font-weight: 400;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.copy {
+    min-width: 50%;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.copy h2 {
+    font-family: "Space Mono";
+    font-size: 7em;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.copy p {
+    padding-left: 80px;
+}
+div.taw_wrapper div.page.thanks div.columns div.column:last-of-type {
+    margin-right: 0;
+    padding-right: 0;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer h2 {
+    font-family: "Space Mono";
+    font-size: 2.6em;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer p {
+    font-size: 1.4em;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.copy div.signoff {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-left: 80px;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.copy div.signoff p {
+    white-space: nowrap;
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-size: 2em;
+    padding-left: 0;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer div.play_wrapper {
+    width: 740px;
+    height: 416px;
+    position: relative;
+    top: 0;
+    left: 0;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to bottom, rgba(var(--userscrollTrack1), 1), rgba(var(--userscrollTrack2), 1));
+    margin-top: 30px;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer div.play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer div.play_button {
+    width: 102px;
+    height: 102px;
+    background-image: linear-gradient(to bottom, rgba(var(--userscrollTrack1), 1) 0%, rgba(var(--userscrollTrack2), 1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer div.play_button:hover {
+    cursor: pointer;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.trailer div.play_button span {
+    width: 50%;
+    height: 50%;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years {
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years div {
+    background-image: linear-gradient(to bottom, rgba(var(--userscrollTrack1), 1) 0%, rgba(var(--userscrollTrack2), 1) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px #00000000;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years h3 {
+    font-size: 1.7em;
+    margin: 0;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years ol {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 30px 0 0 0;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years ol li {
+    font-size: 3.6em;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years ol li a span {
+    visibility: hidden;
+    padding-left: 10px;
+}
+div.taw_wrapper div.page.thanks div.columns div.column.previous_years ol li a:hover span {
+    visibility: visible;
+}
+div.taw_wrapper #navigation {
+    position: fixed;
+    bottom: 2vh;
+    left: 80px;
+}
+div.taw_wrapper #navigation ol {
+    list-style-type: none;
+    display: inline-flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    padding: 0;
+}
+div.taw_wrapper #navigation ol li {
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-size: 0;
+    background-color: #000;
+    width: 40px;
+    height: 2px;
+    display: inline-flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin-right: 10px;
+}
+div.taw_wrapper #navigation ol li:last-child {
+    margin-right: 0;
+}
+div.taw_wrapper #navigation ol li.hide_text {
+    font-size: 0;
+}
+div.taw_wrapper #navigation ol li.selected,
+div.taw_wrapper #navigation ol li:hover {
+    font-size: 1.4em;
+    height: 10px;
+}
+div.taw_wrapper #navigation ol li a {
+    padding-bottom: 16px;
+    min-width: 40px;
+    display: inline-block;
+}
+div.taw_wrapper #navigation ol li.selected span,
+div.taw_wrapper #navigation ol li:hover span {
+    width: 100%;
+}
+div.taw_wrapper div.consensus {
+    margin-top: 6px;
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+}
+div.taw_wrapper div.consensus.tight div.outer_ring {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #081c22;
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+}
+div.taw_wrapper div.consensus .user_score_chart {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+div.taw_wrapper div.consensus .user_score_chart canvas {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+div.taw_wrapper div.consensus .user_score_chart .percent {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.taw_wrapper div.consensus .user_score_chart .percent .icon {
+    color: #fff;
+}
+div.taw_wrapper div.consensus.tight .user_score_chart .percent .icon {
+    padding-top: 1px;
+    padding-left: 1px;
+    font-size: 0.6em;
+}
+section.new_index.taw_2021 form input[type="submit"] {
+    background: linear-gradient(to bottom, rgba(var(--taw2020Blue), 1) 0%, rgba(var(--taw2020DarkPink), 1) 100%);
+    color: #000;
+}
+section.new_index.taw_2021 form input[type="submit"]:hover {
+    color: #fff;
+}
+section.new_index.taw_2021 {
+    height: auto;
+    max-height: none;
+    background: url("https://www.themoviedb.org/assets/2/v4/taw/2021/shape_8-fae706ec0da1ef4e0c48b6abfe1984cfb5808be9dfc01619b25b2a9691c43f56.svg") 50% 50% no-repeat;
+    margin-bottom: 20px;
+}
+section.new_index form input[type="text"] {
+    border: 2px solid rgba(var(--userscrollTrack1), 1);
+}
+section.new_index.taw_2021 div.numbers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+section.new_index.taw_2021 div.numbers h2 {
+    font-family: "Space Mono";
+    font-size: 8em;
+}
+section.new_index.taw_2021 div.taw {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+section.new_index.taw_2021 div.taw h2 {
+    width: 100%;
+    font-size: 2.8em;
+    text-align: center;
+}
+section.new_index.taw_2021 div.taw h3 {
+    width: 100%;
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+section.new_index.taw_2021 div.taw h3 a {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+    color: #fff;
+    font-size: 25px;
+}
+section.new_index.taw_2021 div.taw h3 a:hover {
+    opacity: 0.8;
+    border-bottom: 2px solid rgba(var(--userscrollTrack1), 1);
+}
+section.new_index.taw_2021 div.column_wrapper div.content_wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+section.new_index.taw_2021 div.search {
+    position: relative;
+    top: 20px;
+    left: 0;
+    z-index: 3;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+section.new_index.taw_2021 form {
+    margin-top: 0;
+}
