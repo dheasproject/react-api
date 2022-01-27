@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import { Route, NavLink, HashRouter } from "react-router-dom";
-// import $ from 'jquery'; 
-// import Home from "./Home";
 import App from "./App";
 import style_1 from "./css/application-3347283f99cad225814854f5ea694cf04f29ef25498f29c5d44fcf7ebb202a6b.css";
 import style_2 from "./css/media-7b01183c64a6819c82ef4f23a3087f1ff79f8de786653d6ffb10a07d2a5b70ef.css";
 import style_3 from "./css/discover-421028eba2c3eaf5699e02314870662bfc46a923ce94d25af7cfb312dd37ad93.css";
 import style_4 from "./css/index-22ae5cf76b44e5115ea8049c717a06255873388dd7ae02a2ea653e75829b5eff.css";
 import style_5 from "./css/2021-20f6213395992680de63c49b86035dc3f6c06bb2575c8c9c3e30a9264da38e63.css";
-// import js_1 from "./js/jquery-3.5.1.min-f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d.js";
-// import js_2 from "./js/lozad.min-7f803337d01a657607bca6b20e06f371c3895b36a5f2be03a8fa9b5e16c9a83e.js";
-// import js_3 from "./script.js";
-
-
 
 class Main extends Component {
     render() {
@@ -31,26 +24,21 @@ class Main extends Component {
                                         <a class="no_click" href="#">
                                             Movies
                                         </a>
-
                                     </li>
                                     <li>
                                         <a class="no_click" href="#">
                                             TV Shows
                                         </a>
-
                                     </li>
                                     <li>
                                         <a class="no_click" href="#">
                                             People
                                         </a>
-
-                                       
                                     </li>
                                     <li>
                                         <a class="no_click" href="#">
                                             More
                                         </a>
-
                                     </li>
                                 </ul>
                             </div>

@@ -1,22 +1,15 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-import "./circle.css";
-import { Switch, Route } from 'react-router-dom';
-
+import "./css/circle.css";
 import Tabs from "./Tabs";
-
-import Moment from 'moment';
+import Moment from "moment";
 
 const api_key = "ab1ebe3f4edec2d18c7b9d92b28e022e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
 
 function App() {
-
     const [data, setData] = useState([]);
 
     const api = axios.create({ baseURL: BASE_URL });
@@ -31,25 +24,16 @@ function App() {
 
     return (
         <main id="main" class="index" style={{ margin: "0px" }}>
-
-
             <section class="inner_content no_pad">
+                <div class="column_wrapper">
+                    <div class="content_wrapper no_bottom_pad wrap">
+                        <div class="column">
+                            <div class="column_header">
+                                <div class="selector_wrap">
+                                    <div class="selector">
+                                        <h2 class="nw">What's Popular</h2>
 
-<div class="column_wrapper">
-    <div class="content_wrapper no_bottom_pad wrap">
-        <div class="column">
-            <div class="column_header">
-
-                
-
-                <div class="selector_wrap">
-                    <div class="selector">
-                        
-                            
-                <h2 class="nw">What's Popular</h2>
-                            
-                              
-                    <Tabs>
+                                        <Tabs>
                                             <div label="Streaming" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
@@ -67,15 +51,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-  
-  <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
- 
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -102,13 +84,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -135,13 +117,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -168,13 +150,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -185,76 +167,55 @@ function App() {
                                                 </div>
                                             </div>
                                         </Tabs>
-                            
-                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
-               
-
-                
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-
-</section>
-
-           
+            </section>
 
             <section class="inner_content no_pad">
+                <div class="column_wrapper">
+                    <div class="content_wrapper no_bottom_pad wrap">
+                        <div class="column">
+                            <div class="column_header">
+                                <div class="selector_wrap">
+                                    <div class="selector">
+                                        <h2 class="nw">Free To Watch</h2>
 
-<div class="column_wrapper">
-    <div class="content_wrapper no_bottom_pad wrap">
-        <div class="column">
-            <div class="column_header">
-
-                
-
-                <div class="selector_wrap">
-                    <div class="selector">
-                        
-                            
-                <h2 class="nw">Free To Watch</h2>
-                            
-                              
-                    <Tabs>
+                                        <Tabs>
                                             <div label="Movie" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
                                                         {/* {data.map((movie) => ( */}
-                                                            {/* <Routes to="/movie/details">Click me */}
-                                                            <div class="card style_1">
-                                                                <div class="image">
-                                                                    <div class="wrapper">
-                                                                        <div
-                                                                            class="glyphicons_v2 picture grey poster no_image_holder w160_and_h90"
-                                                                            style={{
-                                                                                backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face/2AbGdSGlU6CpiV3lswHUgE5CdAA.jpg)`,
-                                                                            }}
-                                                                        ></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress="70"></div>
-                                                                    </div>
-
-                                                                    <h2>
-                                                                        <a href="/details">Dark Spell</a>
-                                                                    </h2>
-                                                                    <p>Feb 11, 2021</p>
-
-                                                                    <h2></h2>
-                                                                    <p></p>
+                                                        {/* <Routes to="/movie/details">Click me */}
+                                                        <div class="card style_1">
+                                                            <div class="image">
+                                                                <div class="wrapper">
+                                                                    <div
+                                                                        class="glyphicons_v2 picture grey poster no_image_holder w160_and_h90"
+                                                                        style={{
+                                                                            backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face/2AbGdSGlU6CpiV3lswHUgE5CdAA.jpg)`,
+                                                                        }}
+                                                                    ></div>
                                                                 </div>
                                                             </div>
-                                                            {/* </Routes> */}
+                                                            <div class="content">
+                                                                <div class="consensus tight">
+                                                                    <div class="progress-circle" data-progress="70"></div>
+                                                                </div>
+
+                                                                <h2>
+                                                                    <a href="/details">Dark Spell</a>
+                                                                </h2>
+                                                                <p>Feb 11, 2021</p>
+
+                                                                <h2></h2>
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                        {/* </Routes> */}
                                                         {/* ))} */}
                                                     </div>
                                                 </div>
@@ -276,13 +237,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -293,69 +254,47 @@ function App() {
                                                 </div>
                                             </div>
                                         </Tabs>
-                            
-                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
+            <section class="inner_content bg_image no_pad video">
+                <div class="column_wrapper">
+                    <div class="content_wrapper no_bottom_pad wrap">
+                        <div class="column">
+                            <div class="column_header">
+                                <div class="selector_wrap">
+                                    <div class="selector">
+                                        <h2 class="nw">Latest Trailers</h2>
 
-               
-
-                
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-
-</section>
-
-
-
-
-
-<section class="inner_content bg_image no_pad video">
-
-<div class="column_wrapper">
-    <div class="content_wrapper no_bottom_pad wrap">
-        <div class="column">
-            <div class="column_header">
-
-                
-
-                <div class="selector_wrap">
-                    <div class="selector">
-                        
-                            
-                <h2 class="nw">Latest Trailers</h2>
-                            
-                              
-                    <Tabs>
+                                        <Tabs>
                                             <div label="Movie" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
                                                         {data.map((movie) => (
                                                             <div class="card video style_2">
-                                                            <div class="image">
-                                                                <div class="wrapper">
-                                                                    <div class="glyphicons_v2 picture grey backdrop no_image_holder " style={{
-                                                                    backgroundImage: `url(${"https://www.themoviedb.org/t/p/w220_and_h330_face/" + movie.poster_path})`,
-                                                                }}>
-                                                                    <div class="playBtn"></div>
+                                                                <div class="image">
+                                                                    <div class="wrapper">
+                                                                        <div
+                                                                            class="glyphicons_v2 picture grey backdrop no_image_holder "
+                                                                            style={{
+                                                                                backgroundImage: `url(${"https://www.themoviedb.org/t/p/w220_and_h330_face/" + movie.poster_path})`,
+                                                                            }}
+                                                                        >
+                                                                            <div class="playBtn"></div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                
+                                                                <div class="content">
+                                                                    <h2>{movie.original_title}</h2>
+                                                                    <h3></h3>
                                                                 </div>
                                                             </div>
-                                                            {/* <div class="play">
-                                                                <span class="glyphicons_v2 play invert svg"></span>
-                                                            </div> */}
-                                                            <div class="content">
-                                                                <h2>{movie.original_title}</h2>
-                                                                <h3></h3>
-                                                            </div>
-                                                        </div>
                                                         ))}
                                                     </div>
                                                 </div>
@@ -364,66 +303,48 @@ function App() {
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
                                                         {data.map((movie) => (
-                                                            
                                                             <div class="card video style_2">
-                                                            <div class="image">
-                                                                <div class="wrapper">
-                                                                    <div class="glyphicons_v2 picture grey backdrop no_image_holder " style={{
-                                                                    backgroundImage: `url(${"https://www.themoviedb.org/t/p/w220_and_h330_face/" + movie.poster_path})`,
-                                                                }}>
-                                                                    <div class="playBtn"></div>
+                                                                <div class="image">
+                                                                    <div class="wrapper">
+                                                                        <div
+                                                                            class="glyphicons_v2 picture grey backdrop no_image_holder "
+                                                                            style={{
+                                                                                backgroundImage: `url(${"https://www.themoviedb.org/t/p/w220_and_h330_face/" + movie.poster_path})`,
+                                                                            }}
+                                                                        >
+                                                                            <div class="playBtn"></div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                
+                                                                <div class="content">
+                                                                    <h2>{movie.original_title}</h2>
+                                                                    <h3></h3>
                                                                 </div>
                                                             </div>
-                                                            {/* <div class="play">
-                                                                <span class="glyphicons_v2 play invert svg"></span>
-                                                            </div> */}
-                                                            <div class="content">
-                                                                <h2>{movie.original_title}</h2>
-                                                                <h3></h3>
-                                                            </div>
-                                                        </div>
                                                         ))}
                                                     </div>
                                                 </div>
                                             </div>
                                         </Tabs>
-                            
-                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
-               
-
-                
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-</section>
+            </section>
 
             <section class="inner_content no_pad">
+                <div class="column_wrapper">
+                    <div class="content_wrapper no_bottom_pad wrap">
+                        <div class="column">
+                            <div class="column_header">
+                                <div class="selector_wrap">
+                                    <div class="selector">
+                                        <h2 class="nw">Trending</h2>
 
-<div class="column_wrapper">
-    <div class="content_wrapper no_bottom_pad wrap">
-        <div class="column">
-            <div class="column_header">
-
-                
-
-                <div class="selector_wrap">
-                    <div class="selector">
-                        
-                            
-                <h2 class="nw">Trending</h2>
-                            
-                              
-                    <Tabs>
+                                        <Tabs>
                                             <div label="Movie" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading ml-50">
                                                     <div class="column_content flex scroller">
@@ -441,13 +362,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -474,13 +395,13 @@ function App() {
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress={movie.vote_average.toString().replace(".", "")}></div>
                                                                     </div>
 
                                                                     <h2>
                                                                         <a href="#">{movie.original_title}</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>{Moment(movie.release_date).format("d MMM, YYYY")}</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
@@ -491,25 +412,13 @@ function App() {
                                                 </div>
                                             </div>
                                         </Tabs>
-                            
-                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
-               
-
-                
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-
-</section>
+            </section>
 
             <section class="inner_content leaderboard">
                 <div class="column_wrapper">

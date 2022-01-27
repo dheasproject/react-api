@@ -6,7 +6,7 @@ import Main from './Main';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <div>
+  	<div>
 	  <Main />
 	  <App />
 	</div>,
