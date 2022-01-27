@@ -5,37 +5,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import "./circle.css";
-
+import { Switch, Route } from 'react-router-dom';
 
 import Tabs from "./Tabs";
-import Donut from "./Donut";
 
 import Moment from 'moment';
-// import { Line, Chart } from "react-chartjs-2";
-import {Chart} from "apexcharts";
 
 const api_key = "ab1ebe3f4edec2d18c7b9d92b28e022e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
 
 function App() {
-
-    const series = [
-        {
-          name: "Temperature in Fahrenheit", //will be displayed on the y-axis
-          data: [43, 53, 50, 57]
-        }
-      ];
-      const options = {
-        chart: {
-          id: "simple-bar"
-        },
-        xaxis: {
-          categories: [1, 2, 3, 4] //will be displayed on the x-asis
-        }
-      };
-
-    
 
     const [data, setData] = useState([]);
 
@@ -247,33 +227,35 @@ function App() {
                                             <div label="Movie" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
-                                                        {data.map((movie) => (
+                                                        {/* {data.map((movie) => ( */}
+                                                            {/* <Routes to="/movie/details">Click me */}
                                                             <div class="card style_1">
                                                                 <div class="image">
                                                                     <div class="wrapper">
                                                                         <div
                                                                             class="glyphicons_v2 picture grey poster no_image_holder w160_and_h90"
                                                                             style={{
-                                                                                backgroundImage: `url(${"https://www.themoviedb.org/t/p/w220_and_h330_face/" + movie.poster_path})`,
+                                                                                backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face/2AbGdSGlU6CpiV3lswHUgE5CdAA.jpg)`,
                                                                             }}
                                                                         ></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="consensus tight">
-                                                                        <div class="progress-circle" data-progress={((movie.vote_average).toString()).replace(".", "")}></div>
+                                                                        <div class="progress-circle" data-progress="70"></div>
                                                                     </div>
 
                                                                     <h2>
-                                                                        <a href="#">{movie.original_title}</a>
+                                                                        <a href="/details">Dark Spell</a>
                                                                     </h2>
-                                                                    <p>{Moment(movie.release_date).format('d MMM, YYYY')}</p>
+                                                                    <p>Feb 11, 2021</p>
 
                                                                     <h2></h2>
                                                                     <p></p>
                                                                 </div>
                                                             </div>
-                                                        ))}
+                                                            {/* </Routes> */}
+                                                        {/* ))} */}
                                                     </div>
                                                 </div>
                                             </div>
