@@ -4,7 +4,6 @@ import "./App.css";
 import "./css/circle.css";
 import Register from "./register";
 import Main from "./Main";
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Tabs from "./Tabs";
 import Moment from "moment";
@@ -27,52 +26,51 @@ function App() {
     }, []);
 
     return (
-        
         <main id="main" class="index" style={{ margin: "0px" }}>
             <Main />,
             <main id="main" class="index" style={{ margin: "0px" }}>
-                    <section class="inner_content new_index taw_2021">
-                        <div id="media_v4" class="media discover">
-                            <div class="column_wrapper">
-                                <div class="content_wrapper wrap">
-                                    <div class="numbers">
-                                        <h2>2021</h2>
-                                    </div>
+                <section class="inner_content new_index taw_2021">
+                    <div id="media_v4" class="media discover">
+                        <div class="column_wrapper">
+                            <div class="content_wrapper wrap">
+                                <div class="numbers">
+                                    <h2>2021</h2>
+                                </div>
 
-                                    <div class="taw">
-                                        <h2>That's a Wrap</h2>
-                                        <h3>
-                                            <a href="2021.html" title="That's a Wrap 2021">
-                                                Let's dive into 2021's best and worst! →
-                                            </a>
-                                        </h3>
-                                    </div>
+                                <div class="taw">
+                                    <h2>That's a Wrap</h2>
+                                    <h3>
+                                        <a href="2021.html" title="That's a Wrap 2021">
+                                            Let's dive into 2021's best and worst! →
+                                        </a>
+                                    </h3>
+                                </div>
 
-                                    <div class="search">
-                                        <form id="inner_search_form" action="#" method="get" accept-charset="utf-8">
-                                            <label>
-                                                <input
-                                                    dir="auto"
-                                                    id="inner_search_v4"
-                                                    name="query"
-                                                    type="text"
-                                                    tabindex="1"
-                                                    autocorrect="off"
-                                                    autofill="off"
-                                                    autocomplete="off"
-                                                    spellcheck="false"
-                                                    placeholder="Search for a movie, tv show, person......"
-                                                    value=""
-                                                />
-                                            </label>
-                                            <input type="submit" value="Search" />
-                                        </form>
-                                    </div>
+                                <div class="search">
+                                    <form id="inner_search_form" action="#" method="get" accept-charset="utf-8">
+                                        <label>
+                                            <input
+                                                dir="auto"
+                                                id="inner_search_v4"
+                                                name="query"
+                                                type="text"
+                                                tabindex="1"
+                                                autocorrect="off"
+                                                autofill="off"
+                                                autocomplete="off"
+                                                spellcheck="false"
+                                                placeholder="Search for a movie, tv show, person......"
+                                                value=""
+                                            />
+                                        </label>
+                                        <input type="submit" value="Search" />
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </main>
+                    </div>
+                </section>
+            </main>
             <section class="inner_content no_pad">
                 <div class="column_wrapper">
                     <div class="content_wrapper no_bottom_pad wrap">
@@ -223,7 +221,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <section class="inner_content no_pad">
                 <div class="column_wrapper">
                     <div class="content_wrapper no_bottom_pad wrap">
@@ -310,7 +307,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <section class="inner_content bg_image no_pad video">
                 <div class="column_wrapper">
                     <div class="content_wrapper no_bottom_pad wrap">
@@ -338,7 +334,7 @@ function App() {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <div class="content">
                                                                     <h2>{movie.original_title}</h2>
                                                                     <h3></h3>
@@ -365,7 +361,7 @@ function App() {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <div class="content">
                                                                     <h2>{movie.original_title}</h2>
                                                                     <h3></h3>
@@ -383,7 +379,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <section class="inner_content no_pad">
                 <div class="column_wrapper">
                     <div class="content_wrapper no_bottom_pad wrap">
@@ -468,7 +463,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <section class="inner_content leaderboard">
                 <div class="column_wrapper">
                     <div class="content_wrapper wrap">
@@ -736,7 +730,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <footer class="single_column  ">
                 <nav>
                     <div class="join">

@@ -45,37 +45,44 @@ class Header extends Component {
                             </div>
 
                             <div class="flex">
-          <ul class="primary">
-            <li class="glyph new_buttons">
-              <a class="new_icon no_click" href="#">
-                <span class="glyphicons_v2 plus white"></span>
-              </a>
-            </li>
-            <li class="translate">
-              <div>id</div>
-            </li>
-            
-              <li class="glyph notifications">
-                <a class="no_click" href="#"><span class="glyphicons_v2 bell svg invert "></span></a>
-                {/* <div class="badge"><div class="count"></div></div> */}
-              </li>
-              <li class="user">
-                <a class="no_click tooltip_hover" title="Profil dan Pengaturan" href="#">
-                  
-                    <div class="avatar">
-                      <img src="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32" srcset="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32 1x, https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=64 2x" alt="dheamonnica"/>
-                    </div>
-                  
-                </a>
-              </li>
-            
+                                <ul class="primary">
+                                    <li class="glyph new_buttons">
+                                        <a class="new_icon no_click" href="#">
+                                            <span class="glyphicons_v2 plus white"></span>
+                                        </a>
+                                    </li>
+                                    <li class="translate">
+                                        <div>id</div>
+                                    </li>
 
-            <li class="glyph search_buttons">
-              <a class="search" href="#"><span class="glyphicons_v2 search blue"></span></a>
-              <a class="close hide" href="#"><span class="glyphicons_v2 menu-close invert svg"></span></a>
-            </li>
-          </ul>
-        </div>
+                                    <li class="glyph notifications">
+                                        <a class="no_click" href="#">
+                                            <span class="glyphicons_v2 bell svg invert "></span>
+                                        </a>
+                                        {/* <div class="badge"><div class="count"></div></div> */}
+                                    </li>
+                                    <li class="user">
+                                        <a class="no_click tooltip_hover" title="Profil dan Pengaturan" href="#">
+                                            <div class="avatar">
+                                                <img
+                                                    src="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32"
+                                                    srcset="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32 1x, https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=64 2x"
+                                                    alt="dheamonnica"
+                                                />
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="glyph search_buttons">
+                                        <a class="search" href="#">
+                                            <span class="glyphicons_v2 search blue"></span>
+                                        </a>
+                                        <a class="close hide" href="#">
+                                            <span class="glyphicons_v2 menu-close invert svg"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="search_bar hide">
@@ -92,7 +99,6 @@ class Header extends Component {
                         </section>
                     </div>
                 </header>
-                
             </div>
         );
     }

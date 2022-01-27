@@ -88,7 +88,6 @@ class Main extends Component {
                         </section>
                     </div>
                 </header>
-                
             </div>
         );
     }
