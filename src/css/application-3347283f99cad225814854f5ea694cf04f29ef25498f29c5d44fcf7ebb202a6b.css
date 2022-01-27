@@ -9001,12 +9001,14 @@ kendo-badge-container {
     border-color: rgba(var(--accountLightBlue), 1);
     color: #fff;
     background-color: rgba(var(--accountLightBlue), 1);
+    width: 100px;
 }
 .k-button.k-primary.k-state-hover,
 .k-button.k-primary:hover {
     border-color: rgba(var(--accountLightBlue), 1);
     color: #fff;
     background-color: rgba(var(--accountLightBlue), 1);
+    width: 100px;
 }
 .k-button.k-primary.k-state-focused,
 .k-button.k-primary:focus {
@@ -31159,7 +31161,7 @@ header ul.small a {
     color: #868e91;
 }
 header ul.primary li {
-    margin-left: 30px;
+    margin-left: 10px;
 }
 header ul.primary li:first-child {
     margin-left: 0;
@@ -35667,4 +35669,20 @@ section.main_content.search_results div.network div.results ul li img {
 }
 .glyphicons_v2.trending {
     background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-962-trending-d9ba6bdc2bd0f18a8762ed296e3cd58987e1970b08676b690609114d2928dd78.svg");
+}
+
+.custom_bg {
+    background-image: linear-gradient(to right, rgba(8.63%, 8.63%, 3.92%, 1.00) 150px, rgba(8.63%, 8.63%, 3.92%, 0.84) 100%);
+}
+
+.bg-details {
+    background: url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/o2OSpKzXuB1edCDyVC2MXAxXwyJ.jpg) !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.text-black {
+    color : black !important;
 }

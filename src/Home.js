@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import "./css/circle.css";
 import Register from "./register";
-import Main from "./Main";
+import Header from "./Header";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Tabs from "./Tabs";
@@ -13,7 +13,7 @@ const api_key = "ab1ebe3f4edec2d18c7b9d92b28e022e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
 
-function App() {
+function Home() {
     const [data, setData] = useState([]);
 
     const api = axios.create({ baseURL: BASE_URL });
@@ -29,7 +29,7 @@ function App() {
     return (
         
         <main id="main" class="index" style={{ margin: "0px" }}>
-            <Main />,
+            <Header />,
             <main id="main" class="index" style={{ margin: "0px" }}>
                     <section class="inner_content new_index taw_2021">
                         <div id="media_v4" class="media discover">
@@ -237,8 +237,7 @@ function App() {
                                             <div label="Movie" class="anchor selected-background-active">
                                                 <div id="popular_scroller" class="media discover scroller_wrap should_fade is_fading">
                                                     <div class="column_content flex scroller">
-                                                        {/* {data.map((movie) => ( */}
-                                                        {/* <Routes to="/movie/details">Click me */}
+                                                        <a href="/details">
                                                         <div class="card style_1">
                                                             <div class="image">
                                                                 <div class="wrapper">
@@ -264,8 +263,7 @@ function App() {
                                                                 <p></p>
                                                             </div>
                                                         </div>
-                                                        {/* </Routes> */}
-                                                        {/* ))} */}
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -826,4 +824,4 @@ function App() {
     );
 }
 
-export default App;
+export default Home;

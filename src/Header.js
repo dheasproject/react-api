@@ -8,7 +8,7 @@ import style_3 from "./css/discover-421028eba2c3eaf5699e02314870662bfc46a923ce94
 import style_4 from "./css/index-22ae5cf76b44e5115ea8049c717a06255873388dd7ae02a2ea653e75829b5eff.css";
 import style_5 from "./css/2021-20f6213395992680de63c49b86035dc3f6c06bb2575c8c9c3e30a9264da38e63.css";
 
-class Main extends Component {
+class Header extends Component {
     render() {
         return (
             <div class="page_wrap _wrap">
@@ -45,33 +45,37 @@ class Main extends Component {
                             </div>
 
                             <div class="flex">
-                                <ul class="primary">
-                                    <li class="glyph new_buttons">
-                                        <a class="new_icon no_click" href="#">
-                                            <span class="glyphicons_v2 plus white"></span>
-                                        </a>
-                                    </li>
-                                    <li class="translate">
-                                        <div>en</div>
-                                    </li>
+          <ul class="primary">
+            <li class="glyph new_buttons">
+              <a class="new_icon no_click" href="#">
+                <span class="glyphicons_v2 plus white"></span>
+              </a>
+            </li>
+            <li class="translate">
+              <div>id</div>
+            </li>
+            
+              <li class="glyph notifications">
+                <a class="no_click" href="#"><span class="glyphicons_v2 bell svg invert "></span></a>
+                {/* <div class="badge"><div class="count"></div></div> */}
+              </li>
+              <li class="user">
+                <a class="no_click tooltip_hover" title="Profil dan Pengaturan" href="#">
+                  
+                    <div class="avatar">
+                      <img src="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32" srcset="https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=32 1x, https://secure.gravatar.com/avatar/309175d4746d3df8c881dced6c5341b2.jpg?s=64 2x" alt="dheamonnica"/>
+                    </div>
+                  
+                </a>
+              </li>
+            
 
-                                    <li>
-                                        <a href="/login">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="/register">Join TMDB</a>
-                                    </li>
-
-                                    <li class="glyph search_buttons">
-                                        <a class="search" href="#">
-                                            <span class="glyphicons_v2 search blue"></span>
-                                        </a>
-                                        <a class="close hide" href="#">
-                                            <span class="glyphicons_v2 menu-close invert svg"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+            <li class="glyph search_buttons">
+              <a class="search" href="#"><span class="glyphicons_v2 search blue"></span></a>
+              <a class="close hide" href="#"><span class="glyphicons_v2 menu-close invert svg"></span></a>
+            </li>
+          </ul>
+        </div>
                         </div>
                     </div>
                     <div class="search_bar hide">
@@ -94,4 +98,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default Header;
